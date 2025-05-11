@@ -1,5 +1,16 @@
-from pytest import *
 from pymongo import MongoClient
+import pytest
+import os
+import sys
+
+sys.path.append(os.path.abspath(os.path.dirname(__file__), ".."))
+
+from app import hello, add, subtract, divide, multiply
+
+print("Test przez URL")
+
+load_dotenv()
+MONGO_URI = os.getenv("MONGO_URL")
 
 def test_hello():
     assert hello() == "Hello, world!"
